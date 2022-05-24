@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ns_doc">   
+          
+   <insert id="insertDoc" parameterType="Doc">
+   	INSERT INTO `table_doc`
+   	(doc_tit,doc_writ,doc_cont,doc_reg)
+   	VALUES
+   	(#{doc_tit},#{doc_writ},#{doc_cont},SYSDATE())
+   </insert>
+   
+   <select id="getOneDoc"  resultType="Doc" parameterType="Integer">   
+      SELECT
+       *
+      FROM 
+         table_doc
+      WHERE doc_idx=#{doc_idx}
+   </select>
+   
+   <select id="getAllDoc"  resultType="Doc">
+      SELECT   
+       *
+      FROM 
+         table_doc
+      WHERE 1
+   </select>
+   
+   <update id="updateDoc" parameterType="Doc">
+   UPDATE `table_doc`
+     SET
+     	doc_tit=#{doc_tit},
+        doc_writ=#{doc_writ},
+        doc_cont=#{doc_cont}
+   WHERE
+        doc_idx=#{doc_idx}
+   </update>
+  
+   <delete id="deleteDoc" parameterType="Integer">
+   DELETE FROM `table_doc`
+   WHERE
+   		doc_idx=#{doc_idx}
+   </delete>
+         
+          
+</mapper>
