@@ -6,7 +6,7 @@
 
 <html>
 <head>
-	<title>Home###!!!</title>
+	<title>asdasdasd</title>
 </head>
 <body>
 <h1>
