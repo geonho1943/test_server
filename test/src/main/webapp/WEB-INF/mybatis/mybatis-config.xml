@@ -19,5 +19,6 @@
 	<typeAliases>
 		<typeAlias type="com.my.test.vo.User" alias="User"/>
 		<typeAlias type="com.my.test.vo.Doc" alias="Doc"/>
+		<typeAlias type="com.my.test.vo.Comm" alias="Comm"/>
 	</typeAliases>
 </configuration>

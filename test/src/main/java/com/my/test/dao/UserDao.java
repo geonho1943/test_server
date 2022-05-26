@@ -22,10 +22,7 @@ public class UserDao extends SqlSessionDaoSupport{
 	public int updateUser(User user) {
 		return this.getSqlSession().update("ns_user.updateUser",user);
 	}
-//	public int updateUser(int user_idx) {
-//		return this.getSqlSession().update("ns_user.updateUser",user_idx); 
-//	}
-	
+
  	public int deleteUser(int user_idx) {
 		return this.getSqlSession().delete("ns_user.deleteUser",user_idx);
 	}
