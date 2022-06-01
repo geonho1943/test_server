@@ -25,12 +25,10 @@ import com.my.test.vo.User;
 public class HomeController {
 	@Resource(name="UserDao")
 	private UserDao userDao;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -44,6 +42,7 @@ public class HomeController {
 		
 		return "home";
 	}
+	
 	@RequestMapping(value = "/getOneUser", method = RequestMethod.GET)
 	public @ResponseBody User getOneUser(
 			@RequestParam(value="idx") int user_idx
@@ -69,8 +68,8 @@ public class HomeController {
 	public @ResponseBody String insertUser(
 			@RequestParam(value="id") String id,
 			@RequestParam(value="pw") String pw,
-			@RequestParam(value="nick") String nickname,
-			@RequestParam(value="gen") String gender
+			@RequestParam(value="nick") String nickname
+			//@RequestParam(value="gen") String gender
 			
 			) {
 		
@@ -89,16 +88,15 @@ public class HomeController {
 		@RequestMapping(value="/updateUser", method=RequestMethod.GET)
 		public @ResponseBody String updateUser(
 				@RequestParam(value="idx") int user_idx,
-				@RequestParam(value="id") String id,
-				@RequestParam(value="pw") String pw,
-				@RequestParam(value="nick") String nickname,
-				@RequestParam(value="gen") String gender
+				@RequestParam(value="id") String user_id,
+				@RequestParam(value="pw") String user_pw,
+				@RequestParam(value="name") String user_name
 				) {
 			User user = new User();
 			user.setUser_idx(user_idx);
-			user.setUser_id(id);
-			user.setUser_pw(pw);
-			user.setUser_name(nickname);
+			user.setUser_id(user_id);
+			user.setUser_pw(user_pw);
+			user.setUser_name(user_name);
 			
 			userDao.updateUser(user);
 			
@@ -159,5 +157,24 @@ public class HomeController {
 			
 			return docList;
 		}
+		
+		@RequestMapping(value="/updateDoc", method=RequestMethod.GET)
+		public @ResponseBody String updateDoc(
+				@RequestParam(value="idx") int doc_idx,
+				@RequestParam(value="tit") String doc_tit,
+				@RequestParam(value="writ") String doc_writ,
+				@RequestParam(value="cont") String doc_cont
+				) {
+			Doc doc = new Doc();
+			doc.setDoc_idx(doc_idx);
+			doc.setDoc_tit(doc_tit);
+			doc.setDoc_writ(doc_writ);
+			doc.setDoc_cont(doc_cont);
+			
+			docDao.updateDoc(doc);
+			
+			return "Update Success";
+		}
+		
 		
 }

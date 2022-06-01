@@ -12,7 +12,7 @@
    <select id="getOneDoc"  resultType="Doc" parameterType="Integer">   
       SELECT
        *
-      FROM 
+      FROM
          table_doc
       WHERE doc_idx=#{doc_idx}
    </select>

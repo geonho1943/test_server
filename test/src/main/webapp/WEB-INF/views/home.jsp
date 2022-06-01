@@ -6,11 +6,11 @@
 
 <html>
 <head>
-	<title>asdasdasd</title>
+	<title>test_server</title>
 </head>
 <body>
 <h1>
-	test spring server alive! 
+	test spring server alive!
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>

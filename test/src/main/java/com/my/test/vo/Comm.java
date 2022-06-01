@@ -6,6 +6,7 @@ public class Comm{
 	String com_writ =null;
 	String com_cont =null;
 	String com_reg = null;
+	
 	public int getCom_idx() {
 		return com_idx;
 	}

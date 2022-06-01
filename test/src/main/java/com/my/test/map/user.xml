@@ -23,8 +23,7 @@
      SET
      	user_id=#{user_id},
         user_pw=#{user_pw},
-        user_name=#{user_name},
-        <!-- gender=#{gender} -->
+        user_name=#{user_name}
    WHERE
         user_idx=#{user_idx}
    </update>
