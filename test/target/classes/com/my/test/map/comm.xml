@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ns_comm">
+	<select id="getThisComm" resultType="Comm">
+	SELECT
+       *
+      FROM 
+         table_comm
+      WHERE
+      	com_doc_idx=#{}
+	</select>
+	
+	<insert id="insertComm" parameterType="Comm"><!-- 수정사항 -->
+   	INSERT INTO `table_comm`
+   		(com_doc_idx,com_writ,com_cont,com_reg)
+   	VALUES
+   		(#{doc_idx},#{com_writ},#{com_cont},SYSDATE())
+   </insert>
+   
+   <delete id="deleteComm" parameterType="Integer">
+   DELETE FROM `table_comm`
+   WHERE
+   		com_idx=#{com_idx}
+   </delete>
+   
+   <update id="updateComm" parameterType="Comm">
+   UPDATE `table_comm`
+     SET
+     	com_writ=#{com_writ},
+        com_cont=#{com_cont},
+   WHERE
+        com_idx=#{com_idx}
+   </update>
+
+</mapper>
